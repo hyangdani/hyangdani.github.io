@@ -112,10 +112,9 @@ const thisPageEvent = {
     }
   },
   getTodo : () => {
-    const toDoAddBtn = loginBox.querySelector(".todo-add-btn");
-    toDoAddBtn.addEventListener("click", todoEvent.showTodoAddBox);
-    const toDoHideBtn = loginBox.querySelector(".todo-add-hide-btn");
-    toDoHideBtn.addEventListener("click", todoEvent.hideTodoAddBox);
+    const btnToggle = loginBox.querySelector(".todo-add-btn");
+    btnToggle.addEventListener("click", todoEvent.showHideTodoAddBox);
+
     const savedToDos = localStorage.getItem(`${thisPageEvent.getLoginName()}_${TODOS_KEY}`);
 
     if(savedToDos !== null){
@@ -149,11 +148,16 @@ const toDoInput = toDoForm.querySelector("input");
 
 const todoEvent = {
   toDos : [],
-  showTodoAddBox : () => {
-    toDoForm.classList.remove(HIDDEN_CLASSNAME);
-  },
-  hideTodoAddBox : () => {
-    toDoForm.classList.add(HIDDEN_CLASSNAME);
+  showHideTodoAddBox : (event) => {
+    event.preventDefault();
+    console.log(">>toggle"+event.target.value);
+    if(event.target.value == "+"){
+      event.target.value = "-";
+      toDoForm.classList.remove(HIDDEN_CLASSNAME);
+    }else{
+      event.target.value = "+";
+      toDoForm.classList.add(HIDDEN_CLASSNAME);
+    }
   },
   onTodoSubmit : (event) => {
     event.preventDefault();

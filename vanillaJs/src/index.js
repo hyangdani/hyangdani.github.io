@@ -195,7 +195,6 @@ const todoEvent = {
     span.innerText = newToDo.text;
     toDoList.appendChild(li);
   }
-
 }
 
 const geolocationEvent = {

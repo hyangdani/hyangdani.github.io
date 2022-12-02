@@ -1,0 +1,29 @@
+.hidden{
+    display: none;
+}
+#welcom-box{
+    text-align: center;
+    margin: 50% auto;
+}
+#login-box .user-box{
+    text-align:right;
+}
+
+.divTable{ 
+    display: table; 
+    width: 100%;
+}
+.divTableRow { display: table-row; }
+.divTableCell {
+    display: table-cell;
+    padding: 30px;
+}
+#todo-box{
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.todo-add-btn{
+    margin-left:20px;
+}
